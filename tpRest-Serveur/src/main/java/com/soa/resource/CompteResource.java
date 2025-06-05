@@ -1,6 +1,7 @@
 package com.soa.resource;
 
 import com.soa.entities.Compte;
+import com.soa.filtres.Secured;
 import com.soa.service.CompteService;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -12,6 +13,7 @@ public class CompteResource {
     CompteService service = new CompteService();
 
     @GET
+    @Secured
     @Produces(MediaType.APPLICATION_JSON)
     public List<Compte> getAll() {
         return service.getAll();
@@ -27,6 +29,7 @@ public class CompteResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
+    @Secured
     public Compte create(Compte c) {
         return service.add(c);
     }
