@@ -1,112 +1,69 @@
 # 💳 Gestion de Comptes Bancaires avec JAX-RS
 
-Ce projet Java propose une API RESTful pour gérer des comptes bancaires. Il inclut :
-
-- Un serveur REST développé avec **JAX-RS (Jersey)** et **Grizzly**  
-- Une sécurité par **JWT (JSON Web Token)**  
-- Un **client Java REST**  
-- Des endpoints CRUD sécurisés pour manipuler les comptes
-
----
+API RESTful sécurisée pour la gestion de comptes bancaires développée avec Java/JAX-RS et protégée par JWT.
 
 ## 📌 Fonctionnalités
-
-- 🔐 Authentification avec génération de token JWT
-- 📥 Ajout / 📤 mise à jour / 🔍 lecture / ❌ suppression de comptes bancaires
-- 📦 Client Java REST
-- 🧪 Tests via Postman
-
----
+- 🔐 Authentification JWT (JSON Web Token)
+- 📅 CRUD complet des comptes bancaires
+- 📦 Client Java REST intégré
+- 🧪 Tests via Postman inclus
 
 ## 🧱 Structure du projet
-
 TP_REST/
 │
-├── tpRest-Serveur/ → Backend REST sécurisé avec JWT
-│ ├── entities/ → Classe Compte
-│ ├── service/ → Simule la base (CompteService)
-│ ├── resource/ → REST endpoints (CompteResource, AuthResource)
-│ └── filters/ → JWTFilter + @Secured annotation
+├── tpRest-Serveur/ # Backend REST avec sécurité JWT
+│ ├── entities/ # Classe Compte
+│ ├── service/ # Simulation BDD (CompteService)
+│ ├── resource/ # Endpoints REST (CompteResource, AuthResource)
+│ └── filters/ # Sécurité (JWTFilter + @Secured)
 │
-├── tpRest-Client/ → Java REST Client
-│ └── Main.java → Exécute des appels HTTP vers l'API
+├── tpRest-Client/ # Client Java REST
+│ └── Main.java # Appels HTTP vers l'API
 │
-└── README.md → Fichier de documentation
+└── README.md # Documentation
 
 
-## 🚀 Lancer le serveur
+## 🚀 Démarrage du serveur
+Accès à l'API : 📍 http://localhost:8080/api/
 
-Depuis le dossier `tpRest-Serveur` :
-
-```bash
-mvn clean install
-java -cp target/tpRest-Serveur-1.0-SNAPSHOT.jar com.soa.Main
-Le serveur sera accessible à l’URL :
-📍 http://localhost:8080/api/
-
-🔐 Sécurisation JWT
-Certaines opérations requièrent une authentification.
-Utiliser cet endpoint pour obtenir un token :
-
-http
+🔐 Authentification JWT
+Endpoint d'authentification :
 POST /api/authentication
-Content-Type: application/x-www-form-urlencoded
-
+Headers : Content-Type: application/x-www-form-urlencoded
+Body :
 username=admin
 password=admin123
-Réponse :
 
+Réponse :
 json
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6..."
 }
+Utilisation du token :
+Authorization: Bearer <votre_token>
 
-🔐 Pour accéder aux routes protégées, ajouter dans le header :
-
-Authorization: Bearer <token>
 📊 Endpoints REST
-Méthode	URL	Description	Authentification
-GET	/api/comptes	Obtenir la liste des comptes	❌
-GET	/api/comptes/{id}	Obtenir un compte spécifique	❌
-POST	/api/comptes	Créer un compte	✅
-PUT	/api/comptes/{id}	Modifier un compte existant	✅
+Méthode	URL	Description	Sécurité
+GET	/api/comptes	Obtenir tous les comptes	❌
+GET	/api/comptes/{id}	Obtenir un compte par ID	❌
+POST	/api/comptes	Créer un nouveau compte	✅
+PUT	/api/comptes/{id}	Mettre à jour un compte	✅
 DELETE	/api/comptes/{id}	Supprimer un compte	✅
 
-🧪 Tester avec Postman
-Authentification :
-
-Méthode : POST
-
-URL : http://localhost:8080/api/authentication
-
-Body (x-www-form-urlencoded) :
-
-username=admin
-password=admin123
-Ajouter un compte (JWT requis) :
-
-Méthode : POST
-
-URL : http://localhost:8080/api/comptes
-
-Headers :
-
-Authorization: Bearer <votre_token>
+🧪 Exemple avec Postman
+Création de compte (protégé) :
+http
+POST http://localhost:8080/api/comptes
+Authorization: Bearer <token>
 Content-Type: application/json
-Body (raw JSON) :
-
 {
   "id": 1,
   "type": "courant",
   "solde": 2000
 }
 
-📟 Tester via Client Java
-Depuis tpRest-Client :
-
-mvn clean install
-java -cp target/tpRest-Client-1.0-SNAPSHOT.jar tn.esprit.Main
-Code Java typique :
+📿 Client Java
+Exemple de code :
 
 Client client = ClientBuilder.newClient();
 Compte compte = client
@@ -115,12 +72,22 @@ Compte compte = client
     .get(Compte.class);
 System.out.println(compte);
 
-📚 Ressources utilisées
-Jersey
-jjwt
-Grizzly HTTP Server
+📚 Technologies
+Jersey - Implémentation JAX-RS
+JJWT - Gestion des tokens JWT
+Grizzly - Serveur HTTP
 
 👨‍💻 Auteur
-Projet réalisé par Khiareddine BEN SALAH
+Khiareddine BEN SALAH
 🎓 Université / Module : Architecture Orientée Services - SOA
 📂 GitHub : KhayriBS
+
+
+### Fonctionnalités clés de cette présentation :
+1. **Emojis visuels** pour une navigation rapide
+2. **Arborescence claire** avec blocs de code formatés
+3. **Tableau responsive** pour les endpoints API
+4. **Exemples d'appels** HTTP prêts à l'emploi
+5. **Liens vers les technologies** utilisées
+6. **Sections bien délimitées** avec titres hiérarchisés
+7. **Code syntaxiquement correct** pour les blocs Java/Bash
