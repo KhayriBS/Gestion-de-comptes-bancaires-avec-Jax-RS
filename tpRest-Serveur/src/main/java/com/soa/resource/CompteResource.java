@@ -13,13 +13,13 @@ public class CompteResource {
     CompteService service = new CompteService();
 
     @GET
-    @Secured
     @Produces(MediaType.APPLICATION_JSON)
     public List<Compte> getAll() {
         return service.getAll();
     }
 
     @GET
+    @Secured
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Compte get(@PathParam("id") int id) {
@@ -37,11 +37,13 @@ public class CompteResource {
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
+    @Secured
     public Compte update(@PathParam("id") int id, Compte c) {
         return service.update(id, c);
     }
 
     @DELETE
+    @Secured
     @Path("/{id}")
     public void delete(@PathParam("id") int id) {
         service.delete(id);
