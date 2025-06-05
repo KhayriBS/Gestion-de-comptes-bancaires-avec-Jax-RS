@@ -26,6 +26,11 @@ TP_REST/
 
 
 ## 🚀 Démarrage du serveur
+```bash
+cd tpRest-Serveur
+mvn clean install
+java -cp target/tpRest-Serveur-1.0-SNAPSHOT.jar com.soa.Main
+
 Accès à l'API : 📍 http://localhost:8080/api/
 
 🔐 Authentification JWT
@@ -46,11 +51,13 @@ Authorization: Bearer <votre_token>
 
 📊 Endpoints REST
 Méthode	URL	Description	Sécurité
-GET	/api/comptes	Obtenir tous les comptes	❌
-GET	/api/comptes/{id}	Obtenir un compte par ID	❌
-POST	/api/comptes	Créer un nouveau compte	✅
-PUT	/api/comptes/{id}	Mettre à jour un compte	✅
-DELETE	/api/comptes/{id}	Supprimer un compte	✅
+| Méthode | URL                  | Description                | Sécurité |
+|---------|----------------------|----------------------------|----------|
+| GET     | /api/comptes          | Obtenir tous les comptes   | ❌       |
+| GET     | /api/comptes/{id}     | Obtenir un compte par ID   | ❌       |
+| POST    | /api/comptes          | Créer un nouveau compte    | ✅       |
+| PUT     | /api/comptes/{id}     | Mettre à jour un compte    | ✅       |
+| DELETE  | /api/comptes/{id}     | Supprimer un compte        | ✅       |
 
 🧪 Exemple avec Postman
 Création de compte (protégé) :
@@ -79,17 +86,8 @@ Jersey - Implémentation JAX-RS
 JJWT - Gestion des tokens JWT
 Grizzly - Serveur HTTP
 
-👨‍💻 Auteur
+ 👨‍💻 Auteur
 Khiareddine BEN SALAH
 🎓 Université / Module : Architecture Orientée Services - SOA
 📂 GitHub : KhayriBS
 
-
-### Fonctionnalités clés de cette présentation :
-1. **Emojis visuels** pour une navigation rapide
-2. **Arborescence claire** avec blocs de code formatés
-3. **Tableau responsive** pour les endpoints API
-4. **Exemples d'appels** HTTP prêts à l'emploi
-5. **Liens vers les technologies** utilisées
-6. **Sections bien délimitées** avec titres hiérarchisés
-7. **Code syntaxiquement correct** pour les blocs Java/Bash
