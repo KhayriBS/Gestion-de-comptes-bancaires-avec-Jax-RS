@@ -9,6 +9,8 @@ API RESTful sécurisée pour la gestion de comptes bancaires développée avec J
 - 🧪 Tests via Postman inclus
 
 ## 🧱 Structure du projet
+```bash
+.
 TP_REST/
 │
 ├── tpRest-Serveur/ # Backend REST avec sécurité JWT
