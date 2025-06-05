@@ -23,6 +23,7 @@ TP_REST/
 │ └── Main.java # Appels HTTP vers l'API
 │
 └── README.md # Documentation
+````
 
 
 ## 🚀 Démarrage du serveur
@@ -30,10 +31,11 @@ TP_REST/
 cd tpRest-Serveur
 mvn clean install
 java -cp target/tpRest-Serveur-1.0-SNAPSHOT.jar com.soa.Main
+````
 
 Accès à l'API : 📍 http://localhost:8080/api/
 
-🔐 Authentification JWT
+## 🔐 Authentification JWT
 Endpoint d'authentification :
 POST /api/authentication
 Headers : Content-Type: application/x-www-form-urlencoded
@@ -49,7 +51,7 @@ json
 Utilisation du token :
 Authorization: Bearer <votre_token>
 
-📊 Endpoints REST
+## 📊 Endpoints REST
 Méthode	URL	Description	Sécurité
 | Méthode | URL                  | Description                | Sécurité |
 |---------|----------------------|----------------------------|----------|
@@ -59,7 +61,7 @@ Méthode	URL	Description	Sécurité
 | PUT     | /api/comptes/{id}     | Mettre à jour un compte    | ✅       |
 | DELETE  | /api/comptes/{id}     | Supprimer un compte        | ✅       |
 
-🧪 Exemple avec Postman
+## 🧪 Exemple avec Postman
 Création de compte (protégé) :
 http
 POST http://localhost:8080/api/comptes
@@ -71,7 +73,7 @@ Content-Type: application/json
   "solde": 2000
 }
 
-📿 Client Java
+## 📿 Client Java
 Exemple de code :
 
 Client client = ClientBuilder.newClient();
@@ -81,10 +83,10 @@ Compte compte = client
     .get(Compte.class);
 System.out.println(compte);
 
-📚 Technologies
-Jersey - Implémentation JAX-RS
-JJWT - Gestion des tokens JWT
-Grizzly - Serveur HTTP
+## 📚 Technologies
+* Jersey - Implémentation JAX-RS
+* JJWT - Gestion des tokens JWT
+* Grizzly - Serveur HTTP
 
  👨‍💻 Auteur
 Khiareddine BEN SALAH
