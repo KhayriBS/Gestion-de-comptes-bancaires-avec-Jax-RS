@@ -37,6 +37,8 @@ Accès à l'API : 📍 http://localhost:8080/api/
 
 ## 🔐 Authentification JWT
 Endpoint d'authentification :
+
+```bash
 POST /api/authentication
 Headers : Content-Type: application/x-www-form-urlencoded
 Body :
@@ -50,6 +52,7 @@ json
 }
 Utilisation du token :
 Authorization: Bearer <votre_token>
+````
 
 ## 📊 Endpoints REST
 Méthode	URL	Description	Sécurité
@@ -62,6 +65,7 @@ Méthode	URL	Description	Sécurité
 | DELETE  | /api/comptes/{id}     | Supprimer un compte        | ✅       |
 
 ## 🧪 Exemple avec Postman
+```bash
 Création de compte (protégé) :
 http
 POST http://localhost:8080/api/comptes
@@ -72,24 +76,28 @@ Content-Type: application/json
   "type": "courant",
   "solde": 2000
 }
-
+````
 ## 📿 Client Java
 Exemple de code :
-
+```bash
 Client client = ClientBuilder.newClient();
 Compte compte = client
     .target("http://localhost:8080/api/comptes/1")
     .request(MediaType.APPLICATION_JSON)
     .get(Compte.class);
 System.out.println(compte);
+````
 
 ## 📚 Technologies
 * Jersey - Implémentation JAX-RS
 * JJWT - Gestion des tokens JWT
 * Grizzly - Serveur HTTP
 
- 👨‍💻 Auteur
+## 👨‍💻 Auteur
+```bash
 Khiareddine BEN SALAH
 🎓 Université / Module : Architecture Orientée Services - SOA
 📂 GitHub : KhayriBS
+````
+
 
